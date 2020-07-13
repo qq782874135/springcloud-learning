@@ -1,0 +1,23 @@
+
+spring:
+  application:
+    name: weny-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+#        ext-config:
+#            - data-id: springcloud-control.yml
+#              group: DEFAULT_GROUP
+
+server:
+  port: 8090
+
+
+
+
+
+
+
