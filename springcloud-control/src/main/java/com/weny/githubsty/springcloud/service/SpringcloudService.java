@@ -3,10 +3,7 @@ package com.weny.githubsty.springcloud.service;
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: Weny
@@ -20,5 +17,10 @@ public interface SpringcloudService {
     @RequestMapping(value="/service/getstudent",method = RequestMethod.GET)
     StudentDTO getStudent(@RequestParam  String name);
 
+    @GetMapping("/service/getstudent1")
+    StudentDTO getMappingStudent1(String param);
+
+    @PostMapping("/service/poststudent")
+    StudentDTO postMappingStudent(String param);
 
 }
