@@ -1,0 +1,11 @@
+此包主要放各个分布式项目放到entity util工具类等公用底层包。需要自己打包成maven依赖
+
+1.idea 项目右边 maven - lifecycle -package 打包成jar
+2.执行
+mvn install:install-file   -Dfile=/Users/zl/java/gitCode/springcloud-learning/springcloud-learning/springcloud-common/target/springcloud-common-0.0.1-SNAPSHOT.jar  -DgroupId=springcloud-common  -DartifactId=springcloud-common -Dversion=0.0.1 -Dpackaging=jar
+
+无反应查看maven是否配置成功 mvn -v；
+可以尝试在项目pom.xml文件处打包。
+/Users/zl/java/gitCode/springcloud-learning/springcloud-learning/springcloud-common/target/springcloud-common-0.0.1-SNAPSHOT.jar 为idea打包jar地址 自己更换。
+3.重新maven
+ps：学习用 如果内存够用或者线上使用 可以使用jekins进行进行打包部署 。先打包底层common 然后其他。
