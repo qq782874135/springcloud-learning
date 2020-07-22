@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -68,7 +65,7 @@ public class SpringcloudServiceControl {
      * @return void
      */
     @PostMapping(value = "/redisSuber")
-    public String redisSuber(StudentDTO studentDTO) {
+    public String redisSuber(@RequestBody  StudentDTO studentDTO) {
         String topicData = JSONObject.toJSONString(studentDTO);
         redisTemplate.convertAndSend("topic", topicData);
         redisTemplate.opsForValue().set("test","playgameing");
