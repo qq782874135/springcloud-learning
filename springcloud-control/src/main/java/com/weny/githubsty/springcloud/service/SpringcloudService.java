@@ -23,6 +23,6 @@ public interface SpringcloudService {
     @PostMapping("/service/poststudent")
     StudentDTO postMappingStudent(String param);
 
-    @PostMapping(value = "/service/redisSuber",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/service/redisSuber",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     String redisSuber(@RequestBody StudentDTO studentDTO);
 }
