@@ -11,6 +11,8 @@ spring:
         ext-config:
             - data-id: springcloud-control.yml
               group: DEFAULT_GROUP
+            - data-id: springcloud-redis.yml
+              group: DEFAULT_GROUP
 
 server:
   port: 8089

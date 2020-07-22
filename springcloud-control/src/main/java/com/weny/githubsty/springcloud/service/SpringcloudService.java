@@ -2,7 +2,7 @@ package com.weny.githubsty.springcloud.service;
 
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -23,4 +23,6 @@ public interface SpringcloudService {
     @PostMapping("/service/poststudent")
     StudentDTO postMappingStudent(String param);
 
+    @PostMapping(value = "/service/redisSuber",consumes = MediaType.APPLICATION_JSON_VALUE)
+    String redisSuber(@RequestBody StudentDTO studentDTO);
 }

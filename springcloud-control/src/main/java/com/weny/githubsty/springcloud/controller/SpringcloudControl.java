@@ -17,6 +17,8 @@ public class SpringcloudControl {
     @Autowired
     private SpringcloudService springcloudService;
 
+
+
     @GetMapping(value ="test")
     public  StudentDTO testFeign(){
 
@@ -24,5 +26,17 @@ public class SpringcloudControl {
 
     };
 
+    /*
+     * description:
+     * date: 2020/7/22 上午11:25
+     * author: Weny
+     * @params []
+     * @return com.github.weny.springcloud.springcloudcommon.model.StudentDTO
+     * @desc redis发布订阅+分布式
+     */
+    @GetMapping(value ="redisSuber")
+    public String redisSuber(StudentDTO studentDTO){
+        return springcloudService.redisSuber(studentDTO);
+    }
 
 }
