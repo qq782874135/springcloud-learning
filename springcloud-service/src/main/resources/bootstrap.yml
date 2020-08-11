@@ -13,7 +13,11 @@ spring:
               group: DEFAULT_GROUP
             - data-id: springcloud-redis.yml
               group: DEFAULT_GROUP
-
+            - data-id: springcloud-mysql.yml
+              group: DEFAULT_GROUP
+    alibaba:
+      seata:
+        tx-service-group: "my_test_tx_group"
 server:
   port: 8090
 

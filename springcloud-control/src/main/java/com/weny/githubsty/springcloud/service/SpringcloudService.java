@@ -25,4 +25,7 @@ public interface SpringcloudService {
 
     @RequestMapping(value="/service/redisSuber",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     String redisSuber(@RequestBody StudentDTO studentDTO);
+
+    @RequestMapping(value="/service/addStu",method = RequestMethod.GET)
+    String addStu(@RequestParam int age, @RequestParam String name);
 }

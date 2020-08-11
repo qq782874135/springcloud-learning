@@ -1,12 +1,19 @@
 package com.github.weny.springcloud.springcloudservice.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.weny.springcloud.springcloudcommon.entity.Student;
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
+import com.github.weny.springcloud.springcloudservice.service.StudentService;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * @author: Weny
@@ -20,6 +27,8 @@ public class SpringcloudServiceControl {
 
     @Resource
     private RedisTemplate redisTemplate;
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("/getstudent")
     public StudentDTO getStudent(String name) {
@@ -70,5 +79,37 @@ public class SpringcloudServiceControl {
         redisTemplate.convertAndSend("topic", topicData);
         redisTemplate.opsForValue().set("test","playgameing");
         return "redis消息发布成功。";
+    }
+
+    /*
+     * author: Weny
+     * @params [age, name]
+     * @desc 分布式事务seata，双数据源学习 --https://blog.csdn.net/qq_28193409/article/details/89537216
+     */
+//    @GetMapping("/addStu")
+    @GlobalTransactional
+    public String galobTrans(int age,String name){
+            //db2+1 简单期间2班新来一个同学
+            Student  student = new Student();
+            student.setAge(age);
+            student.setName(name);
+            student.setCode(UUID.randomUUID().toString());
+            Student student1 = studentService.insert2(student);
+            //db1- 1班随机kill一个小朋友
+//            List<Student> students = studentService.queryAll();
+//            int number = new Random().nextInt(students.size()) ;
+//            int id =students.get(number).getId();
+            boolean b = studentService.deleteById(2);
+            //没有这个人或者kill失败 全局回滚
+            if(!b){
+                throw  new RuntimeException();
+            }
+
+        return "success";
+    }
+
+    @GetMapping("/addStu")
+    public String addStu(int age,String name) {
+        return  this.galobTrans(age, name);
     }
 }

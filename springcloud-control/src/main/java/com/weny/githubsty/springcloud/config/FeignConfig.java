@@ -21,8 +21,8 @@ public class FeignConfig {
     Request.Options requestOptions(ConfigurableEnvironment env){
         return new Request.Options(connectTimeOutMillis, readTimeOutMillis);
     }
-    @Bean
-    public Retryer feignRetryer() {
-        return new Retryer.Default(100L, TimeUnit.SECONDS.toMillis(5),3);
-    }
+//    @Bean
+//    public Retryer feignRetryer() {
+//        return new Retryer.Default(100L, TimeUnit.SECONDS.toMillis(5),3);
+//    }
 }

@@ -11,7 +11,7 @@
 	<groupId>com.weny.githubsty</groupId>
 	<artifactId>springcloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springcloud</name>
+	<name>springcloud-control</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -73,6 +73,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.weny.springcloud</groupId>
+			<artifactId>springcloud-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 

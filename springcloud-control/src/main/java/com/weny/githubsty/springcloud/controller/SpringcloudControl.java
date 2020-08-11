@@ -39,4 +39,16 @@ public class SpringcloudControl {
         return springcloudService.redisSuber(studentDTO);
     }
 
+    /*
+     * description:  分布式事务seata 转换班级 模拟不同数据库表数据变更
+     *  https://github.com/seata/seata-samples/blob/master/doc/quick-integration-with-spring-cloud.md#2--%25E6%25B7%25BB%25E5%258A%25A0seata-%25E9%2585%258D%25E7%25BD%25AE%25E6%2596%2587%25E4%25BB%25B6
+     * date: 2020/7/27 下午2:00
+     * author: Weny
+     * @params []
+     * @return java.lang.String
+     */
+    @GetMapping("add")
+    public String gloabalTrans(int age,String name){
+        return  springcloudService.addStu(age,name);
+    }
 }
