@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.springcloud.hander</groupId>
-    <artifactId>springcloud-servercenter</artifactId>
+    <artifactId>springcloud-center</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>server</name>
+    <name>springcloud-center</name>
     <description>Demo project for Spring Boot</description>
 
 
