@@ -1,4 +1,4 @@
-package com.springcloud.hander.server;
+package com.springcloud.hander;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

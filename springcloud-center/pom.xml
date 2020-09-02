@@ -54,10 +54,11 @@
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
         <dependency>
-            <groupId>springcloud-common</groupId>
-            <artifactId>springcloud-common</artifactId>
-            <version>0.0.1</version>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.50.Final</version>
         </dependency>
 
         <dependency>
