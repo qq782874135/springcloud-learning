@@ -10,4 +10,5 @@ public class NettyConstant {
     // host name 和监听的端口号，需要配置到配置文件中
     public static String WS_HOST = "127.0.0.1";
     public static int    WS_PORT = 18888;
+    public static int MSG_TEXT=1;
 }

@@ -1,10 +1,14 @@
 package com.springcloud.handler.server;
 
+import com.springcloud.handler.config.NettyConstant;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
+import org.hibernate.validator.internal.util.StringHelper;
 
 /*
 处理文本消息
@@ -32,6 +36,18 @@ public class TextWebSocketFrameHandler
     @Override
     public void channelRead0(ChannelHandlerContext ctx,
                              TextWebSocketFrame msg) throws Exception {
-        group.writeAndFlush(msg.retain());
+        if(StringHelper.isNullOrEmptyString(msg.text())){return;};
+        MsgBean msgBean=new MsgBean();
+        msgBean.setMsg(msg.text());
+        msgBean.setType(NettyConstant.MSG_TEXT);
+        sendToGroup(msgBean);
+//        group.writeAndFlush(msg.retain());
+    }
+
+    private void sendToGroup(MsgBean msgBean){
+        if(NettyConstant.MSG_TEXT==msgBean.getType()){
+            group.writeAndFlush(new TextWebSocketFrame(msgBean.getMsg()));
+        }
+
     }
 }
