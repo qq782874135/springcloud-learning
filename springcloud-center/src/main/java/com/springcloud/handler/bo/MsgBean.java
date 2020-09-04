@@ -1,4 +1,4 @@
-package com.springcloud.handler.server;
+package com.springcloud.handler.bo;
 
 import lombok.Data;
 
@@ -7,5 +7,5 @@ import java.io.Serializable;
 public class MsgBean implements Serializable {
     private String msg;
     private int type;
-    private int channelId;
+    private Integer userId;
 }
