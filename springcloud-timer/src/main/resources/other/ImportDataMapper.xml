@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsfs.timer.job.springcloudtimer.mapper.sqlserver.ImportDataMapper">
+
+    <insert id ="batchInsert" parameterType="java.util.List" >
+        insert into SaleDetail
+        (ChangeBill, ChangeTime, ChangeName, DetailId, ItemId, GoodsId, ItemCode, GoodsId1, GoodsCode, GoodsName)
+         VALUES
+        <foreach collection ="list" item="SaleDetail" index= "index" separator =",">
+            (
+            #{SaleDetail.ChangeBill},
+            #{SaleDetail.ChangeTime},
+            #{SaleDetail.ChangeName},
+            #{SaleDetail.DetailId},
+            #{SaleDetail.ItemId},
+            #{SaleDetail.GoodsId},
+            #{SaleDetail.ItemCode},
+            #{SaleDetail.GoodsId1},
+            #{SaleDetail.GoodsCode},
+            #{SaleDetail.GoodsName}
+            )
+        </foreach >
+    </insert >
+</mapper>

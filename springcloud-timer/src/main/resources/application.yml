@@ -1,1 +1,27 @@
+server:
+  port: 18990
 
+spring:
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://192.168.8.137:3306/ss_sample?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useAffectedRows=true&&serverTimezone=Asia/Shanghai
+      username: root
+      password: eidy487fhr
+        # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+
+    other:
+      jdbc-url: jdbc:sqlserver://192.168.8.137:1433;DatabaseName=ss_sample_detail
+      username: ssa
+      password: daixiaofeng
+        #使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+logging:
+  level:
+    com: warn
+  file:
+    path: C:\autoExport
