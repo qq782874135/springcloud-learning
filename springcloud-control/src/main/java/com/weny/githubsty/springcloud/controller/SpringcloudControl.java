@@ -1,9 +1,11 @@
 package com.weny.githubsty.springcloud.controller;
 
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
+import com.weny.githubsty.springcloud.result.CommonResult;
 import com.weny.githubsty.springcloud.service.SpringcloudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @desc:
  **/
 @RestController
-public class SpringcloudControl {
+public class SpringcloudControl extends  BaseResultController{
 
     @Autowired
     private SpringcloudService springcloudService;
@@ -50,5 +52,10 @@ public class SpringcloudControl {
     @GetMapping("add")
     public String gloabalTrans(int age,String name){
         return  springcloudService.addStu(age,name);
+    }
+
+    @PostMapping("sendMsg")
+    public CommonResult sendMsg(){
+        return  Result.error("A");
     }
 }
