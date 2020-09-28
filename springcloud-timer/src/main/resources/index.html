@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--<title>WebSocket Chat</title>-->
+</head>
+<body>
+    <script type="text/javascript">
+
+        debugger;
+         var a=sendMsg();
+ 
+        function sendMsg() {
+            $.ajax({
+                url:"http://hcs.madest.com:11001/plm/createOrUpdateSpecialCraft",    //请求的url地址
+                dataType:"json",
+                async:true,
+                data:{"brand":"三彩","brandNeed":"","description":"前片","designCode":"Q201113B","designer":"聂会芳","developCode":"T443201","dhStyleCode":"","edition":"Copies4","materialName":"打揽1","price":5.0,"productProvider":"杭州乔顺服装绣品有限公司","season":"2016_冬","smallMaterial":"T1001","suggestion":"2020-09-15 10:54:08 by Administrator: 1.意见1,2020-09-15 10:54:38 by Administrator: 2.意见2,2020-09-15 10:54:45 by Administrator: 3.意见3","wave":"第三波"},
+                type:"POST",   //请求方式
+                success:function(res){
+                    //请求成功时处理
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>

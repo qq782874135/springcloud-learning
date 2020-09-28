@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -48,8 +49,6 @@ public class TimerServer {
                 });
                 return;
             }
-            int i = importDataMapper.batchInsert(dataList);
-            log.warn(dateString+" ==============成功导入"+i+"条数据==========");
         }catch (Exception e){
             e.printStackTrace();
             log.warn(dateString+" ==============数据导入失败==========");
@@ -62,7 +61,27 @@ public class TimerServer {
     @Autowired
     ImportDataMapper importDataMapper;
 
+    public  String forceFuncByDate(String startDate,String endDate){
 
+        if(StringUtils.isEmpty(startDate)|| StringUtils.isEmpty(endDate)){
+            return "起始时间和结束时间不能为空";
+        }
+        List<SaleDetail> dataList = exportDataMapper.getDataListByDate(startDate, endDate);
+        if(CollectionUtils.isEmpty(dataList)){
+            log.warn("强制导出 ==============没有可导出数据==========");
+            return "强制导出 ==============没有可导出数据==========";
+        }
+        //删除该段时间数据
+        int n = importDataMapper.deleteByDate(startDate, endDate);
+        if(dataList.size()>100){
+            List<List<SaleDetail>> lists = splitList(dataList, 100);
+            lists.forEach(list->{
+                int a=importDataMapper.batchInsert(list);
+                log.warn("强制导出 ==============成功导入"+a+"条数据==========");
+            });
+        }
+        return "导出成功:"+n+"条数据";
+    }
 
     private   <T> List<List<T>> splitList(List<T> list, int splitSize) {
         //判断集合是否为空

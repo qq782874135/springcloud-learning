@@ -21,4 +21,8 @@
             )
         </foreach >
     </insert >
+
+    <delete id="deleteByDate" parameterType="java.lang.String">
+        delete from SaleDetail where [ChangeTime]  <![CDATA[ >= ]]> #{startDate,jdbcType=VARCHAR} and [ChangeTime] <![CDATA[ <= ]]> #{endDate,jdbcType=VARCHAR}
+    </delete>
 </mapper>

@@ -9,4 +9,6 @@ import java.util.List;
 public interface ImportDataMapper {
 
     public int batchInsert(List<SaleDetail> saleDetails);
+
+    int deleteByDate(String startDate,String endDate);
 }
