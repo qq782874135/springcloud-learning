@@ -1,11 +1,14 @@
 package com.weny.githubsty.springcloud.controller;
 
+import com.github.weny.springcloud.springcloudcommon.message.MsgBean;
 import com.github.weny.springcloud.springcloudcommon.model.StudentDTO;
+import com.weny.githubsty.springcloud.GyPlusMaterialBo;
 import com.weny.githubsty.springcloud.result.CommonResult;
 import com.weny.githubsty.springcloud.service.SpringcloudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -55,7 +58,23 @@ public class SpringcloudControl extends  BaseResultController{
     }
 
     @PostMapping("sendMsg")
-    public CommonResult sendMsg(){
+    public CommonResult sendMsg(MsgBean msgBean){
+        try{
+
+        }catch (Exception e){
+
+        }
+        return  Result.error("A");
+    }
+
+    @PostMapping("sendMsg2")
+    public CommonResult sendMsg2(@RequestBody  GyPlusMaterialBo msgBean){
+        System.out.println(msgBean);
+        try{
+
+        }catch (Exception e){
+
+        }
         return  Result.error("A");
     }
 }

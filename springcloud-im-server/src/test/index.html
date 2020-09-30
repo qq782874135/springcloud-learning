@@ -27,7 +27,7 @@
         } else {
             alert("你的浏览器不支持 WebSocket！");
         }
- 
+
         function sendMsg() {
 		    var message=this.form.message.value;
             if (!window.WebSocket) {
@@ -43,11 +43,11 @@
     <form οnsubmit="return false;">
         <h3>WebSocket 聊天室：</h3>
         <textarea id="responseText" style="width: 500px; height: 300px;"></textarea>
-        <br> 
+        <br>
         <input type="text" name="message"  style="width: 300px" value="Welcome to www.waylau.com">
 		<button onclick="sendMsg()">发送消息</button>
     </form>
-    <br> 
-    <br> 
+    <br>
+    <br>
 </body>
 </html>

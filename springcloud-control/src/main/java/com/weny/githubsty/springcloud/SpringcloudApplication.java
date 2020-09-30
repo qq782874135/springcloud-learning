@@ -1,6 +1,5 @@
 package com.weny.githubsty.springcloud;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -20,7 +19,7 @@ public class SpringcloudApplication {
         SpringApplication.run(SpringcloudApplication.class, args);
     }
 
-    @Value("${author.name}")
+//    @Value("${author.name}")
     private  String author;
 
     @RequestMapping(value = "/author")

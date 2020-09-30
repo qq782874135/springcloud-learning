@@ -2,7 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
   <context id="context1">
-    <jdbcConnection connectionURL="jdbc:mysql://ip:3306/db?useSSL=false&amp;autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useAffectedRows=true&amp;&amp;serverTimezone=Asia/Shanghai" driverClass="com.mysql.jdbc.Driver" password="Aabc123456789%%%" userId="ecotest" />
+    <jdbcConnection connectionURL="jdbc:mysql://47.104.183.67:3306/testdb?useSSL=false&amp;autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useAffectedRows=true&amp;&amp;serverTimezone=Asia/Shanghai" driverClass="com.mysql.jdbc.Driver" password="a123456" userId="root" />
 
     <javaModelGenerator targetPackage="com.eco.mybatis.generate.entity" targetProject="./src/main/java">
          <property name="enableSubPackages" value="true"/>
@@ -16,7 +16,7 @@
 
     <javaClientGenerator targetPackage="com.eco.mybatis.generate.mapper" targetProject="./src/main/java" type="XMLMAPPER" />
 
-    <table schema="fleco_test" tableName="fl_agentinfo"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+    <table schema="testdb" tableName="user_info"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
     </table>
   </context>
