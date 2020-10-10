@@ -48,6 +48,9 @@ public class TimerServer {
                     log.warn(dateString+" ==============成功导入"+a+"条数据==========");
                 });
                 return;
+            }else {
+                int b=importDataMapper.batchInsert(dataList);
+                log.warn(dateString+" ==============成功导入"+b+"条数据==========");
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -79,14 +82,18 @@ public class TimerServer {
                 int a=importDataMapper.batchInsert(list);
                 log.warn("强制导出 ==============成功导入"+a+"条数据==========");
             });
+        }else{
+            int b =importDataMapper.batchInsert(dataList);
+            log.warn("强制导出 ==============成功导入"+b+"条数据==========");
         }
-        return "导出成功:"+n+"条数据";
+        return "导出成功:"+dataList.size()+"条数据";
     }
 
     private   <T> List<List<T>> splitList(List<T> list, int splitSize) {
         //判断集合是否为空
-        if (CollectionUtils.isEmpty(list))
+        if (CollectionUtils.isEmpty(list)) {
             return Collections.emptyList();
+        }
         //计算分割后的大小
         int maxSize = (list.size() + splitSize - 1) / splitSize;
         //开始分割

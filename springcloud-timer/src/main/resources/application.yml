@@ -7,7 +7,6 @@ spring:
       jdbc-url: jdbc:mysql://192.168.8.137:3306/ss_sample?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useAffectedRows=true&&serverTimezone=Asia/Shanghai
       username: root
       password: eidy487fhr
-        # ʹ��druid����Դ
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.jdbc.Driver
 
@@ -15,10 +14,8 @@ spring:
       jdbc-url: jdbc:sqlserver://192.168.8.137:1433;DatabaseName=ss_sample_detail
       username: ssa
       password: daixiaofeng
-        #ʹ��druid����Դ
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-
 
 logging:
   level:
