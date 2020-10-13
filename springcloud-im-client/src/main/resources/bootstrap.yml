@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: im-client
+server:
+  port: 8092
+
+
+
+
+
+
+

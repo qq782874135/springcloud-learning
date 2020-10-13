@@ -1,6 +1,6 @@
 spring:
   application:
-    name: center
+    name: im-server
   cloud:
     nacos:
       discovery:
