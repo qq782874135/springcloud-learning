@@ -55,20 +55,19 @@ public class WsClientHandler  extends SimpleChannelInboundHandler<Object> {
     }
 
     @Override
-    public void channelReadComplete(ChannelHandlerContext channelHandlerContext) {
-        channelHandlerContext.flush();
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+        ctx.flush();
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object data) throws Exception {
-        log.info("接收到客户端的响应为:{}", data);
+    protected void channelRead0(ChannelHandlerContext ctx, Object data) throws Exception {
+        log.info("接收到服务端的消息:{}", data);
         if(data instanceof TextWebSocketFrame){
             System.out.println("收到消息："+((TextWebSocketFrame)data).text());
-//            ctx.channel().writeAndFlush(new TextWebSocketFrame("123456"));
         }else if(data instanceof BinaryWebSocketFrame){
             System.out.println("收到二进制消息："+((BinaryWebSocketFrame)data).content().readableBytes());
             BinaryWebSocketFrame binaryWebSocketFrame=new BinaryWebSocketFrame(Unpooled.buffer().writeBytes("xxx".getBytes()));
-//            ctx.channel().writeAndFlush(binaryWebSocketFrame);
+            ctx.channel().writeAndFlush(binaryWebSocketFrame);
         }
         //自定义处理消息
     }

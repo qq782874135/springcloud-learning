@@ -29,7 +29,7 @@
         }
 
         function sendMsg() {
-		    var message=this.form.message.value;
+		    var message=document.getElementById('message').value;
             if (!window.WebSocket) {
                 return;
             }
@@ -44,7 +44,7 @@
         <h3>WebSocket 聊天室：</h3>
         <textarea id="responseText" style="width: 500px; height: 300px;"></textarea>
         <br>
-        <input type="text" name="message"  style="width: 300px" value="Welcome to www.waylau.com">
+        <input type="text" id="message" name="message"  style="width: 300px" value="Welcome to www.waylau.com">
 		<button onclick="sendMsg()">发送消息</button>
     </form>
     <br>
